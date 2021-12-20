@@ -7,6 +7,8 @@ This repo contains all the exercise materials for this training course designed 
 
  - [SupermarketReceipt](SupermarketReceipt) exercise starting point
  - [SupermarketReceipt sample solution](SupermarketReceipt-solution)
+ - [XmlReports](XmlReports) exercise starting point
+ - [XmlReports sample solution](XmlReports-solution)
 
 ## Preparation for the course
 
