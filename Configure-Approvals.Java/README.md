@@ -1,7 +1,7 @@
 Configuring Approvals.Java
 ==========================
 
-Firstly you should find the [website for Approvals](https://approvaltests.com/), which has some general information about this family of tools. Click on the 'Java' symbol to go to the [Approvals.Java homepage](https://github.com/approvals/approvaltests.java).
+Firstly you should find the [website for Approvals](https://approvaltests.com/), which has some general information about this family of tools. Click on the 'Java' symbol to go to the [Approvals.Java homepage](https://github.com/approvals/approvaltests.java). Take a look at the README file (scroll down past the information about the project sourcecode).
 
 
 ## Adding the dependency to Approvals.Java
@@ -27,4 +27,4 @@ If you want a plain diff that will work on any platform, this is a good option f
 	    public static ApprovalFailureReporter UseReporter         = JunitReporter.INSTANCE;
 	}   
 
-Instead of JunitReporter there are several options, you can find a full list in the [documentation for Reporters](https://github.com/approvals/ApprovalTests.Java/blob/master/approvaltests/docs/Reporters.md).
+When you're working on your development machine you may want a graphical diff tool instead. Simple replace "JunitReporter" with another tool, you can find a full list of what's available in the [documentation for Reporters](https://github.com/approvals/ApprovalTests.Java/blob/master/approvaltests/docs/Reporters.md).
