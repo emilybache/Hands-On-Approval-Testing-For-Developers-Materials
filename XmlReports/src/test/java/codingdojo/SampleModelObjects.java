@@ -1,5 +1,7 @@
 package codingdojo;
 
+import java.time.LocalDateTime;
+
 /**
  * This class contains some sample product data that you could use in your tests.
  */
@@ -18,7 +20,7 @@ public class SampleModelObjects {
     public static final Product MASTERCLASS = new StoreEvent("Eyeshadow Masterclass", "EVENT01", FLAGSHIP_STORE, new Price(119.99D, "USD"));
     public static final Product MAKEOVER = new StoreEvent("Makeover", "EVENT02", FLAGSHIP_STORE, new Price(149.99D, "USD"));
 
-    public static final Order RECENT_ORDER = new Order("1234", Util.fromIsoDate("2018-09-01T00:00Z"),
+    public static final Order RECENT_ORDER = new Order("1234", LocalDateTime.parse("2018-09-01T00:00:00"),
             FLAGSHIP_STORE, new Product[] {MAKEOVER});
 
     private SampleModelObjects() {

@@ -1,5 +1,6 @@
 package codingdojo;
 
+import java.time.LocalDateTime;
 import java.util.Collection;
 
 public class TaxCalculator {
@@ -7,7 +8,7 @@ public class TaxCalculator {
     public static double calculateAddedTax(Collection<Order> orders) {
         double tax = 0.0;
         for (Order order : orders) {
-            if (order.getDate().before(Util.fromIsoDate("2018-01-01T00:00Z")))
+            if (order.getDate().isBefore(LocalDateTime.parse("2018-01-01T00:00:00")))
                 tax += 10;
             else
                 tax += 20;
