@@ -75,7 +75,6 @@ public class XMLExporter {
                     tax += product.getPrice().getAmountInCurrency("USD") * 0.25;
                 else
                     tax += product.getPrice().getAmountInCurrency("USD") * 0.175;
-
             }
 
             xml.append("<orderTax currency='USD'>");
@@ -171,5 +170,4 @@ public class XMLExporter {
     private static String stylistFor(Product product) {
         return "Celeste Pulchritudo"; // in future we will look up the name of the stylist from the database
     }
-
 }

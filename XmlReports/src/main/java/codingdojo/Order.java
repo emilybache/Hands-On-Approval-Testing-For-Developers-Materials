@@ -10,8 +10,8 @@ public class Order {
 
     private final String id;
     private final Date date;
-    private Collection<Product> products = new ArrayList<>();
-    private Store store;
+    private final Collection<Product> products = new ArrayList<>();
+    private final Store store;
 
     public Order(String id, Date date, Store store, Product[] products) {
         this.id = id;
@@ -54,5 +54,4 @@ public class Order {
     public Store getStore() {
         return store;
     }
-
 }

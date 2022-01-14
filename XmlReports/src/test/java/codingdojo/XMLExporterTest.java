@@ -1,6 +1,5 @@
 package codingdojo;
 
-
 import org.junit.jupiter.api.Test;
 
 public class XMLExporterTest {
@@ -9,7 +8,5 @@ public class XMLExporterTest {
     public void testSomething() {
 
         // TODO: implement this test
-
     }
-
 }
