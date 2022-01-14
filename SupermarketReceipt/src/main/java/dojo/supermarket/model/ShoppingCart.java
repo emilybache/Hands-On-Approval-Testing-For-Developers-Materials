@@ -15,7 +15,7 @@ public class ShoppingCart {
     }
 
     void addItem(Product product) {
-        this.addItemQuantity(product, 1.0);
+        addItemQuantity(product, 1.0);
     }
 
     Map<Product, Double> productQuantities() {

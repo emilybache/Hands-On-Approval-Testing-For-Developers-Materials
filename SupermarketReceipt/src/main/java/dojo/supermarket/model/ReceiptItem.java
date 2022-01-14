@@ -17,7 +17,7 @@ public class ReceiptItem {
     }
 
     public double getPrice() {
-        return this.price;
+        return price;
     }
 
     public Product getProduct() {

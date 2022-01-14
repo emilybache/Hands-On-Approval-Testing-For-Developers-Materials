@@ -10,25 +10,25 @@ public class Receipt {
 
     public double getTotalPrice() {
         double total = 0.0;
-        for (ReceiptItem item : this.items) {
+        for (ReceiptItem item : items) {
             total += item.getTotalPrice();
         }
-        for (Discount discount : this.discounts) {
+        for (Discount discount : discounts) {
             total += discount.getDiscountAmount();
         }
         return total;
     }
 
     public void addProduct(Product p, double quantity, double price, double totalPrice) {
-        this.items.add(new ReceiptItem(p, quantity, price, totalPrice));
+        items.add(new ReceiptItem(p, quantity, price, totalPrice));
     }
 
     public List<ReceiptItem> getItems() {
-        return new ArrayList<>(this.items);
+        return new ArrayList<>(items);
     }
 
     public void addDiscount(Discount discount) {
-        this.discounts.add(discount);
+        discounts.add(discount);
     }
 
     public List<Discount> getDiscounts() {
