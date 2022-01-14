@@ -21,9 +21,9 @@ public class Order {
     }
 
     public double totalDollars() {
-        return products.stream(). //
-                mapToDouble(product -> product.getPrice().getAmountInCurrency("USD")). //
-                sum();
+        return products.stream()
+                .mapToDouble(p -> p.getPrice().getAmountInCurrency("USD"))
+                .sum();
     }
 
     @Override
