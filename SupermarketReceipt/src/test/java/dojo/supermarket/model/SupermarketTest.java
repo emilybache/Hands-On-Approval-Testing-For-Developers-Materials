@@ -15,9 +15,9 @@ public class SupermarketTest {
     @Test
     public void tenPercentDiscount() {
         SupermarketCatalog catalog = new FakeCatalog();
-        Product toothbrush = new Product("toothbrush", ProductUnit.Each);
+        Product toothbrush = new Product("toothbrush", ProductUnit.EACH);
         catalog.addProduct(toothbrush, 0.99);
-        Product apples = new Product("apples", ProductUnit.Kilo);
+        Product apples = new Product("apples", ProductUnit.KILO);
         catalog.addProduct(apples, 1.99);
 
         Teller teller = new Teller(catalog);
@@ -38,8 +38,5 @@ public class SupermarketTest {
         assertEquals(1.99, receiptItem.getPrice());
         assertEquals(2.5*1.99, receiptItem.getTotalPrice());
         assertEquals(2.5, receiptItem.getQuantity());
-
     }
-
-
 }
