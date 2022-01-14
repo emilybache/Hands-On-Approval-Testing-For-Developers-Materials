@@ -1,30 +1,22 @@
 package codingdojo;
 
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
+import java.time.Instant;
+import java.time.LocalDateTime;
+import java.time.ZoneOffset;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
-import java.util.TimeZone;
 
 class Util {
 
     public static Date fromIsoDate(String datetime) {
-        TimeZone tz = TimeZone.getTimeZone("UTC");
-        DateFormat df = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm'Z'");
-        df.setTimeZone(tz);
-
-        try {
-            return df.parse(datetime);
-        } catch (ParseException e) {
-            e.printStackTrace();
-            return null;
-        }
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm'Z'");
+        Instant instant = LocalDateTime.parse(datetime, formatter).toInstant(ZoneOffset.UTC);
+        return Date.from(instant);
     }
 
     public static String toIsoDate(Date date) {
-        TimeZone tz = TimeZone.getTimeZone("UTC");
-        DateFormat df = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm'Z'");
-        df.setTimeZone(tz);
-        return df.format(date);
+        LocalDateTime dateTime = LocalDateTime.ofInstant(date.toInstant(), ZoneOffset.UTC);
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm'Z'");
+        return dateTime.format(formatter);
     }
 }
