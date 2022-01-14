@@ -1,6 +1,7 @@
 package dojo.supermarket.model;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class Receipt {
@@ -24,7 +25,7 @@ public class Receipt {
     }
 
     public List<ReceiptItem> getItems() {
-        return new ArrayList<>(items);
+        return Collections.unmodifiableList(items);
     }
 
     public void addDiscount(Discount discount) {

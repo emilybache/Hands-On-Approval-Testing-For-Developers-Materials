@@ -1,6 +1,7 @@
 package dojo.supermarket.model;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -8,10 +9,10 @@ import java.util.Map;
 public class ShoppingCart {
 
     private final List<ProductQuantity> items = new ArrayList<>();
-    Map<Product, Double> productQuantities = new HashMap<>();
+    private final Map<Product, Double> productQuantities = new HashMap<>();
 
     List<ProductQuantity> getItems() {
-        return new ArrayList<>(items);
+        return Collections.unmodifiableList(items);
     }
 
     void addItem(Product product) {
@@ -19,7 +20,7 @@ public class ShoppingCart {
     }
 
     Map<Product, Double> productQuantities() {
-        return productQuantities;
+        return Collections.unmodifiableMap(productQuantities);
     }
 
     public void addItemQuantity(Product product, double quantity) {
