@@ -1,19 +1,19 @@
 package codingdojo;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
-import java.util.Date;
 
 public class Order {
 
     private final String id;
-    private final Date date;
-    private Collection<Product> products = new ArrayList<>();
-    private Store store;
+    private final LocalDateTime date;
+    private final Collection<Product> products = new ArrayList<>();
+    private final Store store;
 
-    public Order(String id, Date date, Store store, Product[] products) {
+    public Order(String id, LocalDateTime date, Store store, Product[] products) {
         this.id = id;
         this.date = date;
         this.store = store;
@@ -21,9 +21,9 @@ public class Order {
     }
 
     public double totalDollars() {
-        return products.stream(). //
-                mapToDouble(product -> product.getPrice().getAmountInCurrency("USD")). //
-                sum();
+        return products.stream()
+                .mapToDouble(p -> p.getPrice().getAmountInCurrency("USD"))
+                .sum();
     }
 
     @Override
@@ -43,7 +43,7 @@ public class Order {
         return Collections.unmodifiableCollection(products);
     }
 
-    public Date getDate() {
+    public LocalDateTime getDate() {
         return date;
     }
 
@@ -54,5 +54,4 @@ public class Order {
     public Store getStore() {
         return store;
     }
-
 }

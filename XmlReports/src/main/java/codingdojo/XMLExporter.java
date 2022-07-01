@@ -2,8 +2,9 @@ package codingdojo;
 
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Collection;
-import java.util.Date;
 
 public class XMLExporter {
 
@@ -59,7 +60,7 @@ public class XMLExporter {
         for (Order order : orders) {
             xml.append("<order");
             xml.append(" date='");
-            xml.append(Util.toIsoDate(order.getDate()));
+            xml.append(formatDate(order.getDate()));
             xml.append("'");
             xml.append(">");
             double tax = 0D;
@@ -75,11 +76,10 @@ public class XMLExporter {
                     tax += product.getPrice().getAmountInCurrency("USD") * 0.25;
                 else
                     tax += product.getPrice().getAmountInCurrency("USD") * 0.175;
-
             }
 
             xml.append("<orderTax currency='USD'>");
-            if (order.getDate().before(Util.fromIsoDate("2018-01-01T00:00Z")))
+            if (order.getDate().isBefore(LocalDateTime.parse("2018-01-01T00:00:00")))
                 tax += 10;
             else
                 tax += 20;
@@ -139,14 +139,14 @@ public class XMLExporter {
         xml.append("<?xml version=\"1.0\" encoding=\"UTF-8\"?>");
         xml.append("<orderHistory");
         xml.append(" createdAt='");
-        Date now = new Date();
-        xml.append(Util.toIsoDate(now));
+        LocalDateTime now = LocalDateTime.now();
+        xml.append(formatDate(now));
         xml.append("'");
         xml.append(">");
         for (Order order : orders) {
             xml.append("<order");
             xml.append(" date='");
-            xml.append(Util.toIsoDate(order.getDate()));
+            xml.append(formatDate(order.getDate()));
             xml.append("'");
             xml.append(" totalDollars='");
             xml.append(order.totalDollars());
@@ -172,4 +172,7 @@ public class XMLExporter {
         return "Celeste Pulchritudo"; // in future we will look up the name of the stylist from the database
     }
 
+    private static String formatDate(LocalDateTime date) {
+        return date.format(DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm'Z'"));
+    }
 }
