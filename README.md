@@ -1,5 +1,5 @@
-Hands On Agile Software Testing Materials
-=========================================
+Hands On Approval Testing for Developers - Materials
+====================================================
 
 This repo contains all the exercise materials for this training course designed by Emily Bache, hosted on O'Reilly's live online training platform.
 
