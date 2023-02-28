@@ -7,7 +7,7 @@ The class you want to test is `XMLExporter` - you should aim for 100% code cover
 2) [ ] Write a test for the `exportFull` method on `XMLExporter` 
     - [ ] Re-name the test case `testSomething` to `exportFull`
     - [ ] Call the function `XMLExporter.exportFull`. You will need to pass an argument - a list of `Order` objects. You can find test data in the `SampleModelObjects` class. For example use `List.of(RecentOrder)` 
-    - [ ] Use the the result from the call to `XMLExporter.exportFull` as the string Approvals should verify. Since it is xml, use the `Approvals.verifyXml` method.
+    - [ ] Use the result from the call to `XMLExporter.exportFull` as the string Approvals should verify. Since it is xml, use the `Approvals.verifyXml` method.
     - [ ] Run the test case. It should fail and write a received file. Examine this file.
     - [ ] If the received file looks ok, approve it by renaming it from `xx.received.xml` to `xx.approved.xml`
     - [ ] Run the test again and check it passes now
@@ -19,4 +19,5 @@ The class you want to test is `XMLExporter` - you should aim for 100% code cover
     - [ ] The test should pass now, run it again with coverage and check if it is 100% for this function.
     - [ ] Make a commit in version control with your updated test case. Be sure to include the approved file.
 4) [ ] Add further test cases for the other methods in `XMLExporter`. Feel free to add more data in `SampleModelObjects` or modify what's there so you can get 100% coverage.
-   
+   - [ ] If you run into difficulty with a test that relies on the current date and time, look up the documentation on [Scrubbers](https://github.com/approvals/ApprovalTests.Java/blob/master/approvaltests/docs/Scrubbers.md). Use a DateScrubber.
+    
