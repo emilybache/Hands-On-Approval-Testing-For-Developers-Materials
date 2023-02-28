@@ -3,7 +3,7 @@ package codingdojo;
 
 import org.approvaltests.Approvals;
 import org.approvaltests.core.Options;
-import org.approvaltests.scrubbers.RegExScrubber;
+import org.approvaltests.scrubbers.DateScrubber;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
@@ -37,12 +37,9 @@ public class XMLExporterTest {
     public void exportHistory() {
         var orders = List.of(RecentOrder, OldOrder);
         String xml = XMLExporter.exportHistory(orders);
-        Approvals.verifyXml(xml,
-                new Options(new RegExScrubber(
-                        "createdAt=\"[^\"]+\"",
-                        "createdAt=\"2018-09-20T00:00Z\"")
-                )
-        );
+        Approvals.verifyXml(xml, new Options().withScrubber(
+                DateScrubber.getScrubberFor("2018-09-20T00:00Z")
+        ));
     }
 
 }
