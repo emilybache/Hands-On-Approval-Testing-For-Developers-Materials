@@ -1,6 +1,4 @@
-package dojo.supermarket;
-
-import dojo.supermarket.model.*;
+package dojo.supermarket.model;
 
 import java.util.Locale;
 
